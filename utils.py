@@ -20,7 +20,7 @@ def sample_video(filename, skip=4, nframes=5, start_frame=0):
     while more:
         more = cap.grab()
         index += 1
-        if index % sample_every == 0:
+        if index % sample_every == 0 and index >= start_frame:
             more, frame = cap.retrieve()
             frames.append(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
         more = more and len(frames) < nframes
