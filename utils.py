@@ -67,10 +67,10 @@ def compare_data_and_theory(ts, ys, y0, v0, a):
     plt.ylabel('height (m)')
 
 
-def display_motion_diagram(frames):
+def display_motion_diagram(frames, rot=3):
     f = np.mean(frames, axis=0) / 255.
     plt.figure(figsize=(6, 6))
-    plt.imshow(np.rot90(f, 1), vmax=255.)
+    plt.imshow(np.rot90(f, rot), vmax=255.)
 
 
 def draw_warm_up_diagram():
@@ -86,6 +86,6 @@ def draw_warm_up_diagram():
 
     plt.xlim(-1.5, np.max(xs) * 1.1)
     plt.ylim(-2, 2)
-    plt.xlabel('x')
-    plt.ylabel('y')
+    plt.xlabel('x (m)')
+    plt.ylabel('y (m)')
     axes.set_aspect(1)
